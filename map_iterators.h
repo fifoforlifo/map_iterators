@@ -121,13 +121,13 @@ public:
 
 
 template <class Map>
-auto key_range(Map&& map) -> KeyRange<decltype(map.begin())>
+auto keys(Map&& map) -> KeyRange<decltype(map.begin())>
 {
     return KeyRange<decltype(map.begin())>(map.begin(), map.end());
 }
 
 template <class Map>
-auto value_range(Map&& map) -> ValueRange<decltype(map.begin())>
+auto values(Map&& map) -> ValueRange<decltype(map.begin())>
 {
     return ValueRange<decltype(map.begin())>(map.begin(), map.end());
 }

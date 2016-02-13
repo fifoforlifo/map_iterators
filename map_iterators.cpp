@@ -7,11 +7,11 @@ typedef std::map<const char*, int> Scores;
 
 void PrintScores(const Scores& scores)
 {
-    for (const auto& key : key_range(scores))
+    for (const auto& key : keys(scores))
     {
         printf("key = %s\n", key);
     }
-    for (const auto& value : value_range(scores))
+    for (const auto& value : values(scores))
     {
         printf("value = %d\n", value);
     }
@@ -19,7 +19,13 @@ void PrintScores(const Scores& scores)
 
 void MutateScores(Scores& scores)
 {
-    for (auto& value : value_range(scores))
+    for (auto& key : keys(scores))
+    {
+        // NOTE: mutating key violates std::map's invariants, but
+        // map's own iterator provides non-const access to key!
+        printf("key = %s\n", key);
+    }
+    for (auto& value : values(scores))
     {
         value += 1;
         printf("value = %d\n", value);
