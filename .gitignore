@@ -1,0 +1,10 @@
+*.opensdf
+*.sdf
+*.suo
+*.user
+**/Debug/*
+**/Release/*
+Debug/*
+Release/*
+**/x64/**
+
