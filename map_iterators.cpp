@@ -7,11 +7,11 @@ typedef std::map<const char*, int> Scores;
 
 void PrintScores(const Scores& scores)
 {
-    for (const auto& key : key_range_const(scores))
+    for (const auto& key : key_range(scores))
     {
         printf("key = %s\n", key);
     }
-    for (const auto& value : value_range_const(scores))
+    for (const auto& value : value_range(scores))
     {
         printf("value = %d\n", value);
     }

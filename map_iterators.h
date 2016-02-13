@@ -121,23 +121,13 @@ public:
 
 
 template <class Map>
-KeyRange<typename std::decay<Map>::type::iterator> key_range(Map&& map)
+auto key_range(Map&& map) -> KeyRange<decltype(map.begin())>
 {
-    return KeyRange<typename std::decay<Map>::type::iterator>(map.begin(), map.end());
-}
-template <class Map>
-KeyRange<typename std::decay<Map>::type::const_iterator> key_range_const(Map&& map)
-{
-    return KeyRange<typename std::decay<Map>::type::const_iterator>(map.begin(), map.end());
+    return KeyRange<decltype(map.begin())>(map.begin(), map.end());
 }
 
 template <class Map>
-ValueRange<typename std::decay<Map>::type::iterator> value_range(Map&& map)
+auto value_range(Map&& map) -> ValueRange<decltype(map.begin())>
 {
-    return ValueRange<typename std::decay<Map>::type::iterator>(map.begin(), map.end());
-}
-template <class Map>
-ValueRange<typename std::decay<Map>::type::const_iterator> value_range_const(Map&& map)
-{
-    return ValueRange<typename std::decay<Map>::type::const_iterator>(map.begin(), map.end());
+    return ValueRange<decltype(map.begin())>(map.begin(), map.end());
 }
